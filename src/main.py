@@ -81,7 +81,10 @@ async def roll(interaction: discord.Interaction):
         roll_val = random.randint(roll_dist["min"], roll_dist["max"])
         outcomes = roll_dist["outcomes"]
         for outcome in outcomes:
-            min_outcome, max_outcome = [int(x) for x in outcome.split('-')]
+            if isinstance(outcome, str) and '-' in outcome:
+                min_outcome, max_outcome = [int(x) for x in outcome.split('-')]
+            else:
+                min_outcome = max_outcome = int(outcome)
             if min_outcome <= roll_val <= max_outcome:
                 message.append(f"{member.mention} rolled a {roll_val}: {outcomes[outcome]}")
                 break
