@@ -6,11 +6,11 @@ client = OpenAI(
     api_key = "ollama"
 )
 
-def get_llm_mimicry(messages: list[str], context: str = "") -> str:
+def get_llm_mimicry(messages: list[str], model_name: str = "", context: str = "") -> str:
     formatted = '\n'.join(f"- {msg}" for msg in messages)
 
     response = client.chat.completions.create(
-        model="gemma2:27b",
+        model=model_name,
         messages=[
             {
                 "role": "system",

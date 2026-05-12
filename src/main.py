@@ -44,7 +44,7 @@ async def mimic(interaction: discord.Interaction, user: discord.Member):
 
     # ask llm to interpret messages and send a message responding to the message content
     # if there's not enough content, respond with a characature of what the user may say
-    llm_message = get_llm_mimicry(messages)
+    llm_message = get_llm_mimicry(messages, config["model_name"])
     print(f'Sent LLM message {llm_message} mimicking {user.display_name}')
     await interaction.followup.send(llm_message)
 
