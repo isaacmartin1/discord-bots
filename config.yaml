@@ -1,0 +1,7 @@
+idle_channel_id: ""
+roll_distribution:
+  min: 1
+  max: 20
+  outcomes:
+    "1-10": Bad Outcome
+    "11-20": Good Outcome
