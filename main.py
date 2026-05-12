@@ -86,9 +86,10 @@ async def roll(interaction: discord.Interaction):
                 message.append(f"{member.mention} rolled a {roll_val}: {outcomes[outcome]}")
                 break
     if message:
-        await interaction.response.send_message("\n".join(message))
+        await interaction.response.send_message("Rolling the dice...")
+        await interaction.channel.send("\n".join(message))
     else:
-        await interaction.response.send_message("The server's voice chats are empty!")
+        await interaction.channel.send("The server's voice chats are empty!")
 
 def get_voice_users(ctx):
     members = []
